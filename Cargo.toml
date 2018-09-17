@@ -2,5 +2,8 @@
 members = [
     "noughts-and-crosses-game",
     "noughts-and-crosses-lib",
+    "noughts-and-crosses-ai-test",
     "ai-graph",
+    "noughts-and-crosses-random-train",
 ]
+

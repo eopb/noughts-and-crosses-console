@@ -16,6 +16,8 @@
 
 [Linux](https://gitlab.com/efunb/noughts-and-crosses-ai-collection/-/jobs/artifacts/dev/download?job=nightly-linux-optimized)
 
+[Docs](https://gitlab.com/efunb/noughts-and-crosses-ai-collection/-/jobs/artifacts/dev/download?job=docs)
+
 ## Projects
 
 ### Noughts And Crosses Game
@@ -26,10 +28,11 @@ This is the game.
 
 This is the library I made for the game and other experiments that use noughts and crosses game boards.
 
-<!-- ### Ai Graph -->
+### Ai Graph
 
-
-
+[![License](https://img.shields.io/crates/l/ai-graph.svg)](https://crates.io/crates/ai-graph)
+[![Latest version](https://img.shields.io/crates/v/ai-graph.svg)](https://crates.io/crates/ai-graph)
+[![downloads-badge](https://img.shields.io/crates/d/ai-graph.svg)](https://crates.io/crates/ai-graph)
 ## Dependencies
 
 This project uses rand 0.5 for generating the random numbers used in the artificial intelligence.

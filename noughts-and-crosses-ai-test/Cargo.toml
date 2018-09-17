@@ -1,0 +1,10 @@
+[package]
+name = "noughts-and-crosses-ai-test"
+version = "0.1.0"
+authors = ["Ethan Brierley <ethanboxx@gmail.com>"]
+
+[dependencies]
+
+
+ai-graph = { path = "../ai-graph" }
+noughts_and_crosses_lib = { path = "../noughts-and-crosses-lib" }
