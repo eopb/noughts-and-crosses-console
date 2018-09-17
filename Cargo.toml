@@ -11,6 +11,6 @@ RustGame.
 [dependencies]
 
 noughts_and_crosses_lib = "0"
-
+dont_disappear = "0"
 
 

@@ -2,7 +2,7 @@ use noughts_and_crosses_lib::ai;
 use noughts_and_crosses_lib::movement;
 
 use std::io;
-
+extern crate dont_disappear;
 extern crate noughts_and_crosses_lib;
 pub use noughts_and_crosses_lib::{
     switch_player, AiMode, GameBoard, GameMode, MovementReturn, Players, Winner, IS_DEBUG,
@@ -118,7 +118,7 @@ fn main() {
         game_board.draw_game_board(&game_mode);
         continue;
     }
-    game_finished();
+    dont_disappear::enter_to_continue();
 }
 
 fn game_mode_choice() -> GameMode {
@@ -193,12 +193,4 @@ fn print_instructions() {
     println!("To move the star up type 8 and hit enter");
     println!("To move the star down type 2 and hit enter");
     println!("To place your cross type 5 and hit enter");
-}
-
-fn game_finished() {
-    let mut input = String::new();
-    println!("Press enter to close.");
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Failed to read line");
 }

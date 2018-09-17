@@ -12,6 +12,11 @@ dependencies = [
 ]
 
 [[package]]
+name = "dont_disappear"
+version = "0.0.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
 name = "fuchsia-zircon"
 version = "0.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -34,6 +39,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 name = "noughts-and-crosses-console"
 version = "0.1.0"
 dependencies = [
+ "dont_disappear 0.0.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "noughts_and_crosses_lib 0.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -84,6 +90,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [metadata]
 "checksum bitflags 1.0.4 (registry+https://github.com/rust-lang/crates.io-index)" = "228047a76f468627ca71776ecdebd732a3423081fcf5125585bcd7c49886ce12"
 "checksum cloudabi 0.0.3 (registry+https://github.com/rust-lang/crates.io-index)" = "ddfc5b9aa5d4507acaf872de71051dfd0e309860e88966e1051e462a077aac4f"
+"checksum dont_disappear 0.0.8 (registry+https://github.com/rust-lang/crates.io-index)" = "4f6de2ebcf732c4a544c6ad49f08c6ea55aec523e491f31728a00af03c11fd87"
 "checksum fuchsia-zircon 0.3.3 (registry+https://github.com/rust-lang/crates.io-index)" = "2e9763c69ebaae630ba35f74888db465e49e259ba1bc0eda7d06f4a067615d82"
 "checksum fuchsia-zircon-sys 0.3.3 (registry+https://github.com/rust-lang/crates.io-index)" = "3dcaa9ae7725d12cdb85b3ad99a434db70b468c09ded17e012d86b5c1010f7a7"
 "checksum libc 0.2.43 (registry+https://github.com/rust-lang/crates.io-index)" = "76e3a3ef172f1a0b9a9ff0dd1491ae5e6c948b94479a3021819ba7d860c8645d"
