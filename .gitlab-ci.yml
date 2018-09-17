@@ -100,6 +100,7 @@ cratesio:
   stage: publish
   cache: {}
   script:
+    - rm -r -f files
     - apt-get update
     - rustup default nightly
     - rustup update
