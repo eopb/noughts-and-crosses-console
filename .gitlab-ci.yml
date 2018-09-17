@@ -2,7 +2,7 @@
 image: "rust:latest"
 
 stages:
-  - build
+  - check
   - test
   - deploy
   - publish
@@ -14,7 +14,7 @@ cache:
     - ${CI_PROJECT_DIR}/target/
 
 clean-code:
-  stage: build
+  stage: check
   script:
     - rustup default nightly
     - rustup update
@@ -23,35 +23,35 @@ clean-code:
   allow_failure: true
 
 build-noughts-and-crosses-game:
-  stage: build
+  stage: check
   script:
     - rustup default nightly
     - rustup update
     - (cd noughts-and-crosses-game && cargo build)
 
 build-noughts-and-crosses-lib:
-  stage: build
+  stage: check
   script:
     - rustup default nightly
     - rustup update
     - (cd noughts-and-crosses-lib && cargo build)
 
 build-ai-graph:
-  stage: build
+  stage: check
   script:
     - rustup default nightly
     - rustup update
     - (cd ai-graph && cargo build)
 
 build-noughts-and-crosses-ai-test:
-  stage: build
+  stage: check
   script:
     - rustup default nightly
     - rustup update
     - (cd noughts-and-crosses-ai-test && cargo build)
 
 build-noughts-and-crosses-random-train:
-  stage: build
+  stage: check
   script:
     - rustup default nightly
     - rustup update

@@ -1,9 +1,15 @@
-[workspace]
-members = [
-    "noughts-and-crosses-game",
-    "noughts-and-crosses-lib",
-    "noughts-and-crosses-ai-test",
-    "ai-graph",
-    "noughts-and-crosses-random-train",
-]
+[package]
+name = "noughts-and-crosses-console"
+version = "0.1.0"
+authors = ["Ethan Brierley <ethanboxx@gmail.com>"]
+readme = "README.md"
+repository = "https://gitlab.com/efunb/rustGame"
+description = """
+RustGame.
+"""
+[dependencies]
+
+noughts_and_crosses_lib = "0"
+
+
 
