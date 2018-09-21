@@ -37,7 +37,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "noughts-and-crosses-console"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "dont_disappear 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "noughts_and_crosses_lib 0.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
