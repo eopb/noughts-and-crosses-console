@@ -10,7 +10,7 @@ RustGame.
 """
 [dependencies]
 
-noughts_and_crosses_lib = "0"
+noughts_and_crosses_lib = { path = "../noughts_and_crosses" }
 dont_disappear = "1"
 
 
