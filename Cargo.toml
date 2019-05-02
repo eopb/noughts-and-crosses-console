@@ -12,5 +12,5 @@ RustGame.
 
 noughts_and_crosses_lib = "0.0.3"
 dont_disappear = "1"
-
+read_input = "0.8"
 
