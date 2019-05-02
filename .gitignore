@@ -1,8 +1,6 @@
 
 */target
 **/*.rs.bk
-/noughts-and-crosses-lib/Cargo.lock
-/ai-graph/Cargo.lock
 \.vscode/
 
 target/

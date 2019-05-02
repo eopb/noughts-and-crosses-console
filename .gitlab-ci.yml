@@ -2,7 +2,7 @@
 image: "rust:latest"
 
 stages:
-  - build
+  - check
   - test
   - deploy
   - publish
@@ -14,7 +14,7 @@ cache:
     - ${CI_PROJECT_DIR}/target/
 
 clean-code:
-  stage: build
+  stage: check
   script:
     - rustup default nightly
     - rustup update
@@ -22,40 +22,13 @@ clean-code:
     - cargo fmt --all -- --check
   allow_failure: true
 
-build-noughts-and-crosses-game:
-  stage: build
+build-noughts-and-crosses-console:
+  stage: check
   script:
     - rustup default nightly
     - rustup update
-    - (cd noughts-and-crosses-game && cargo build)
+    - cargo build
 
-build-noughts-and-crosses-lib:
-  stage: build
-  script:
-    - rustup default nightly
-    - rustup update
-    - (cd noughts-and-crosses-lib && cargo build)
-
-build-ai-graph:
-  stage: build
-  script:
-    - rustup default nightly
-    - rustup update
-    - (cd ai-graph && cargo build)
-
-build-noughts-and-crosses-ai-test:
-  stage: build
-  script:
-    - rustup default nightly
-    - rustup update
-    - (cd noughts-and-crosses-ai-test && cargo build)
-
-build-noughts-and-crosses-random-train:
-  stage: build
-  script:
-    - rustup default nightly
-    - rustup update
-    - (cd noughts-and-crosses-random-train && cargo build)
 
 unittests:
   stage: test
@@ -79,14 +52,10 @@ nightly-linux-optimized:
     - apt-get update
     - rustup default nightly
     - rustup update
-    - (cd noughts-and-crosses-game && cargo build --release)
-    - (cd noughts-and-crosses-random-train && cargo build --release)
-    - (cd noughts-and-crosses-ai-test && cargo build --release)
+    - cargo build --release
     - rm -r -f files
     - mkdir files
-    - cp target/release/noughts-and-crosses-game files
-    - cp target/release/noughts-and-crosses-random-train files
-    - cp target/release/noughts-and-crosses-ai-test files
+    - cp target/release/noughts-and-crosses-console files
   when: on_success
   artifacts:
     paths:
@@ -112,14 +81,10 @@ nightly-windows-optimized:
     - echo [target.x86_64-pc-windows-gnu] >> .cargo/config
     - echo     linker = \"x86_64-w64-mingw32-gcc\" >> .cargo/config
     - echo     ar = \"x86_64-w64-mingw32-gcc-ar\" >> .cargo/config
-    - (cd noughts-and-crosses-game && cargo build --release --target=x86_64-pc-windows-gnu)
-    - (cd noughts-and-crosses-random-train && cargo build --release --target=x86_64-pc-windows-gnu)
-    - (cd noughts-and-crosses-ai-test && cargo build --release --target=x86_64-pc-windows-gnu)
+    - cargo build --release --target=x86_64-pc-windows-gnu
     - rm -r -f files
     - mkdir files
-    - cp target/x86_64-pc-windows-gnu/release/noughts-and-crosses-game.exe files
-    - cp target/x86_64-pc-windows-gnu/release/noughts-and-crosses-random-train.exe files
-    - cp target/x86_64-pc-windows-gnu/release/noughts-and-crosses-ai-test.exe files
+    - cp target/x86_64-pc-windows-gnu/release/noughts-and-crosses-console.exe files
   when: on_success
   artifacts:
     paths:
@@ -130,36 +95,16 @@ nightly-windows-optimized:
       - master
       - dev
 
-docs:
-  stage: deploy
-  cache: {}
-  script:
-    - apt-get update
-    - rustup default nightly
-    - rustup update
-    - (cd ai-graph && cargo doc --no-deps)
-    - rm -r -f docs
-    - mkdir docs
-    - cp -R target/doc docs
-  when: on_success
-  artifacts:
-    paths:
-      - docs
-    expire_in: 2 weeks
-  only:
-    refs:
-      - master
-      - dev
 
 cratesio:
   stage: publish
   cache: {}
   script:
+    - rm -r -f files
     - apt-get update
     - rustup default nightly
     - rustup update
     - cargo login $CARGO_LOGIN
-    - cd ai-graph
     - cargo package
     - cargo publish
   when: on_success
